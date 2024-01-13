@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{{ url_for('index')}}">Home</a>
+  <h2>Processed Image</h2>
+  <p>Filename: {{ filename }}</p>
+  <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Processed Image">
+  <p>Processing Result: {{ result }}</p>
+  <img src="{{ url_for('static', filename='processed/' + filename) }}" alt="Processed Image">
+  <button><a href="{{ url_for('drawing') }}">Proceed</a></button>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Upload an Image</h2>
+  <form method="post" enctype="multipart/form-data" action="{{ url_for('uploadImage') }}">
+      <input type="file" name="file" accept=".png, .jpg, .jpeg, .gif" required>
+    <label for="processing_type">Select Processing Type:</label>
+    <select name="processing_type" id="processing_type" required>
+        <option value="type1">Baroque</option>
+        <option value="type2">New Hampshire</option>
+        <!-- Add more options as needed -->
+    </select>
+      <button type="submit">Upload</button>
+  </form>
+{% endblock %}

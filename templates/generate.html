@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Generate an Image</h2>
+  <form method="post" action="{{ url_for('generateImage') }}">
+    <label for="user_input">Enter something:</label>
+    <input type="text" id="user_input" name="user_input" required>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+  
+  {% if result %}
+  <h2>Edited Image</h2>
+  <img src="{{ url_for('static', filename='processed/' + result) }}" alt="Processed Image">
+  {% endif %}
+  
+{% endblock %}

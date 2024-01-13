@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+  
+    <title>Da Vinci</title>
+</head>
+<body>
+  <h1 class="trns-text">Da Vinci</h1>
+  <h2>A robotic artist who draws in the style of old masters</h2>
+
+  <div class = "container">
+    {% block content %}{% endblock %}
+  </div>
+  <button><a href="{{ url_for('generateImage') }}">Generate</a></button>
+  <button><a href="{{ url_for('uploadImage') }}">Upload</a></button>
+</body>
+</html>

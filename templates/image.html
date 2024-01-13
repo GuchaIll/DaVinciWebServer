@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Upload an Image</h2>
+  <form method="post" enctype="multipart/form-data" action="{{ url_for('uploadImage') }}">
+      <input type="file" name="file" accept=".png, .jpg, .jpeg, .gif" required>
+    <label for="processing_type">Select Processing Type:</label>
+    <select name="processing_type" id="processing_type" required>
+        <option value="type1">Baroque</option>
+        <option value="type2">New Hampshire</option>
+        <!-- Add more options as needed -->
+    </select>
+   
+      <button type="submit">Upload</button>
+    
+  </form>
+  {% if filename %}
+  <h2>Uploaded Image</h2>
+  <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Processed Image">
+  {% endif %}
+
+  <h2>Would you like to edit the image? Just type in the box below!</h2>
+  <form method="post" action="{{ url_for('uploadImage') }}">
+    <label for="user_input">Enter something:</label>
+    <input type="text" id="user_input" name="user_input" required>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+
+  {% if result %}
+  <h2>Edited Image</h2>
+  <img src="{{ url_for('static', filename='processed/' + result) }}" alt="Processed Image">
+  {% endif %}
+
+
+{% endblock %}
