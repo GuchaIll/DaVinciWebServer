@@ -4,8 +4,12 @@
 <a href="{{ url_for('index')}}">Home</a>
   <h2>Processed Image</h2>
   <p>Filename: {{ filename }}</p>
-  <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Processed Image">
+  {% if filename %}
+  <img src="{{ url_for('static', filename='processEdge/' + filename) }}" alt="Preprocessed Image">
   <p>Processing Result: {{ result }}</p>
-  <img src="{{ url_for('static', filename='processed/' + filename) }}" alt="Processed Image">
+  {% endif %}
+  {% if result %}
+  <img src="{{ url_for('static', filename='edges/' + result) }}" alt="Processed Image">
   <button><a href="{{ url_for('drawing') }}">Proceed</a></button>
+  {% endif %}
 {% endblock %}

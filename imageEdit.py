@@ -1,4 +1,5 @@
-import PIL
+import PIL.Image
+import PIL.ImageOps
 import requests
 import torch
 from diffusers import StableDiffusionInstructPix2PixPipeline, EulerAncestralDiscreteScheduler

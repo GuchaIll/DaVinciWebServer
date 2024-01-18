@@ -11,14 +11,24 @@
   list-style: none;
   text-decoration: none;
   margin: 0 auto;
-
+ 
   
   
 }
 
+body {
+
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
 h2{
   font-size:2rem;
-  margin-left: 20%;
+  margin: 5% 10%;
+  font-weight: 700;
+  color: #ff1717;
 }
 
 button{
@@ -27,9 +37,9 @@ button{
 }
 
 button {
-  background-color: white;
-  color: black;
-  border: 2px solid #555555;
+  background-color: rgb(202, 202, 202);
+  color: rgb(255, 255, 255);
+  border: 2px solid #ffffff;
   padding: 2%; /* Adjust the padding to make it proportional */
   font-size: 2rem; /* Increase the font size */
   width: 50%; /* Adjust the width as needed */
@@ -38,7 +48,7 @@ button {
 }
 
 button:hover {
-  background-color: #555555;
+  background-color: #565656;
   color: white;
 }
 
@@ -62,3 +72,12 @@ button:hover {
 ul li a{
   margin-right: 20px;
 }
+iframe {
+  width: 90vw;
+  max-width: 850px; 
+  height: 50vh; 
+  border: 0; 
+}
+
+/*Cat */
+
