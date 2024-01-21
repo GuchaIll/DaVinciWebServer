@@ -11,3 +11,5 @@ class generateImageModel:
     def generate_image(self, prompt):
     
         images = self.pipe(prompt=prompt).images[0]
+        print(images)
+        return images

@@ -22,7 +22,7 @@
           <a class="nav-link"  href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  href="{{ url_for('generateImage') }}">Generate</a>
+          <a class="nav-link"  href="{{ url_for('generateImage2') }}">Generate</a>
         </li>
         <li class="nav-item dropdown dmenu">
         <a class="nav-link dropdown-toggle"  href="{{ url_for('uploadImage') }}" id="navbardrop" data-toggle="dropdown">
@@ -67,7 +67,7 @@
   <div class = "container">
     {% block content %}{% endblock %}
   </div>
-  <button><a href="{{ url_for('generateImage') }}">Generate</a></button>
+  <button><a href="{{ url_for('generateImage2') }}">Generate</a></button>
   <button><a href="{{ url_for('uploadImage') }}">Upload</a></button>
 </body>
 </html>

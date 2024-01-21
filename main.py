@@ -4,20 +4,20 @@ from werkzeug.utils import secure_filename
 from imageEdit import modifyImageModel
 from imageProcessing import shadingProcessing
 
-#from imageGen2 import generateImageModel
+from imageGen import generateImageModel
 #loading flask and the models
 app = Flask(__name__)
 app.secret_key = "key"
 
 
-#ImageGen_model = generateImageModel()
+
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'
 }
 app.config['UPLOAD_FOLDER'] = "./static/uploads"
 app.config['SUBMISSION_FOLDER'] = "./static/processed"
 app.config['PROCESSING_FOLDER'] = "./static/processEdge"
-app.config['EDGE_FOLDER'] = "./static/edge"
+app.config['EDGE_FOLDER'] = "./static/edges"
 
 working_filepath = None
 edge_filepath = None
@@ -47,7 +47,7 @@ def image_process():
 
 
 @app.route('/iframeCreate', methods=['GET', 'POST'])
-def generateImage():
+def generateImage1():
   if request.method == 'POST':
     prompt = request.form.get('user_input', '')
     if prompt:
@@ -58,6 +58,21 @@ def generateImage():
       return render_template('iframeCreate.html', result = filename)
     
   return render_template('iframeCreate.html')
+
+@app.route('/generate', methods=['GET', 'POST'])
+def generateImage2():
+  if request.method == 'POST':
+    prompt = request.form.get('user_input', '')
+    if prompt:
+      ImageGen_model = generateImageModel()
+      result = ImageGen_model.generate_image(prompt)
+      filename = secure_filename(prompt)
+      print(filename)
+      file_path = os.path.join(app.config['SUBMISSION_FOLDER'], filename)
+      result.save(file_path)
+      return render_template('generate.html', result = filename)
+    
+  return render_template('generate.html')
 
 @app.route('/image', methods=['GET', 'POST'])
 def uploadImage():

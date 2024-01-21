@@ -86,7 +86,7 @@ class shadingProcessing:
                 combined_mask = cv2.bitwise_or(combined_mask, mask)
             
         
-            filled_image = draw_diagonal_lines(combined_mask, (i+1) * 5)
+            filled_image = self.draw_diagonal_lines(combined_mask, (i+1) * 5)
             cv2.imshow(f'filled{i}', filled_image)
             cv2.waitKey(0)
             cv2.destroyAllWindows()

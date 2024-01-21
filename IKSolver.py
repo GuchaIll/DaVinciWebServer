@@ -1,4 +1,6 @@
 import numpy as np
+import os
+import csv
 
 class ControlMapping:
     def __init__(self,depth, maxWidth, maxHeight):
@@ -36,6 +38,9 @@ class ControlMapping:
             stream.append(packet)
         return stream
     
+    def writeToCSV(self, stream):
+        for packet in stream:
+            angle0, angle1,  = (angle[0], angle[1], point[0], point[2],point[3])
     def solveIK(a1,a2,x,y):
         #a1 = length of first segment of arm
         #a2 = length of second segment of arm
